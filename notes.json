@@ -1,0 +1,29 @@
+{
+  "notes": [
+    {
+      "title": "Meeting Notes",
+      "created_at": "2023-11-24 10:00 AM",
+      "body": "Meeting agenda:\n- Discuss project timeline\n- Review budget allocations\n- Assign tasks"
+    },
+    {
+      "title": "Ideas for Website Redesign",
+      "created_at": "2023-11-23 03:30 PM",
+      "body": "Notes for website redesign:\n- Implement responsive design\n- Enhance user experience\n- Improve site navigation.Notes for website redesign:\n- Implement responsive design\n- Enhance user experience\n- Improve site navigation."
+    },
+    {
+      "title": "Grocery List",
+      "created_at": "2023-11-22 09:45 AM",
+      "body": "Groceries to buy:\n- Apples\n- Milk\n- Bread\n- Eggs\n- Cheese"
+    },
+    {
+      "title": "Personal Goals",
+      "created_at": "2023-11-21 08:00 PM",
+      "body": "Goals for the upcoming month:\n- Read two new books\n- Start learning a new language\n- Exercise at least 4 times a week"
+    },
+    {
+      "title": "Project To-Do List",
+      "created_at": "2023-11-20 11:15 AM",
+      "body": "Tasks for the project:\n- Research phase completion\n- Draft proposal\n- Schedule client meeting"
+    }
+  ]
+}

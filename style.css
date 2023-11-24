@@ -1,0 +1,61 @@
+/* 
+------------
+Custom properties
+------------
+*/
+:root{
+    --ff-primary: 'Quicksand', sans-serif;
+    --ff-secondary: 'Pacifico', cursive;
+
+    --clr-yellow: "#fdfbd3";
+    --clr-dark: "#00000"
+
+    --spacer: 1rem
+}
+/* 
+------------
+Resets
+------------
+*/
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--ff-primary);
+}
+
+/* 
+------------
+Utility classes
+------------
+*/
+.flow-content > * + * {
+  margin-top: var(--flow-space, var(--spacer));
+}
+
+.flow-content--lg {
+  --flow-space: 3rem;
+}
+.container {
+  padding: 0 var(--spacer);
+  max-width: 70rem;
+  margin: 0 auto;
+}
+/* 
+------------
+Header
+------------
+*/
+header{
+    margin-bottom: 3rem;
+    padding: .5rem 1rem;
+}
+.link{
+    list-style-type: none;
+}
+.link a{
+    text-decoration: none;
+    color: var(--clr-dark);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
