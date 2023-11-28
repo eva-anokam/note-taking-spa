@@ -13,26 +13,14 @@ Note
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
-.add-new-note{
-    background-color: #f0f0f0;
-    max-width: 400px;
-    padding: .5rem;
-    text-align: center;
-    font-size: clamp(.75rem, 1.25rem, 1.5rem);
-    font-weight: 700;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-    grid-column: span 2;
-}
+
 .note{
     background-color: #fdfbd3;
     padding: .5rem;
     border: 3px solid hsl(57, 91%, 31%);
     border-radius: 20px;
 }
-.note:nth-child(odd) {
-    grid-row: span 2;
-}
+
 .note__title{
     font-weight: 400;
     font-family: 'Pacifico', cursive;
@@ -45,4 +33,26 @@ Note
 }
 .note__body{
     font-size: .5rem;
+}
+
+@media(min-width: 780px) {
+    #home{
+        gap: 1.75rem;
+    }
+    .note__title{
+        font-size: 1.75rem;
+    }
+    .note__time{
+        font-size: 1.75rem;
+    }
+    .note__body{
+        font-size: 1.25rem;
+    }
+}
+
+@media(min-width: 1200px) {
+    #home{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
 }

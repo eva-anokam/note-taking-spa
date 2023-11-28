@@ -1,5 +1,14 @@
-export async function getNotes() {
-    const req = await fetch("./notes.json")
-    const data = await req.json()
-    return data;
+const Notes = {
+    notes:  null
 }
+
+const proxiedNotes = new Proxy(Notes, {
+    set(target, property, value) {
+        target[property] = value;
+        if (property === "notes") {
+            window.dispatchEvent(new Event("noteschange"))
+        }
+        return true;
+    }
+})
+export default proxiedNotes

@@ -1,4 +1,5 @@
 import { HomePage } from "../components/HomePage.js"
+import NewNote from "../components/NewNote.js"
 
 export const Router = {
     init: () => {
@@ -11,6 +12,12 @@ export const Router = {
             const url = anchor.getAttribute("href")
             Router.go(url)
         })
+        const newNote = document.querySelector(".add-new-note")
+        newNote.addEventListener("click", (event) => {
+            event.preventDefault()
+            Router.go("/new-note")
+        })
+
         window.addEventListener("popstate", (event) => {
             Router.go(event.state.route, false)
         })
@@ -27,6 +34,9 @@ export const Router = {
             case "/note-taking-spa/":
                 //load the home page when the base url is accessed
                 pageElement = document.createElement("home-page")
+                break;
+            case "/new-note":
+                pageElement = document.createElement("new-note")
                 break;
             default:
                 pageElement = document.createElement("h1");

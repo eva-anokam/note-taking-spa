@@ -47,15 +47,59 @@ Header
 ------------
 */
 header{
-    margin-bottom: 3rem;
-    padding: .5rem 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem 1rem .5rem;
+}
+nav{
+  width: min(90%, 70rem);
+  margin: 0 auto;
 }
 .link{
     list-style-type: none;
+    margin-bottom: 1.5rem;
 }
 .link a{
     text-decoration: none;
     color: var(--clr-dark);
     font-weight: 700;
     font-size: 1.5rem;
+}
+
+.add-new-note{
+    background-color: #f0f0f0;
+    width: 200px;
+    padding: .5rem;
+    text-align: center;
+    font-size: clamp(.75rem, 1.25rem, 1.5rem);
+    font-weight: 700;
+    border-radius: 20px;
+    margin: 0 auto 1rem;
+    transition: all .3s;
+    cursor: pointer;
+}
+.add-new-note:hover, .add-new-note:focus{
+  transform: scale(1.2);
+}
+
+@media(min-width: 780px) {
+  header{
+    padding: 2rem 0 0;
+    margin-bottom: 3rem;
+  }
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .link{
+    margin-bottom: 0;
+  }
+  .link a{
+    font-size: 2rem;
+  }
+  .add-new-note{
+    padding: .75rem 1.5rem;
+    width: 300px;
+    margin: 0;
+  }
 }

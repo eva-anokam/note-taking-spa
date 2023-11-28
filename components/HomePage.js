@@ -1,4 +1,6 @@
-import { getNotes } from "../services/Notes.js";
+import { fetchNotes } from "../services/API.js";
+import NewNote from "../components/NewNote.js"
+import app from "../app.js";
 export class HomePage extends HTMLElement {
     constructor() {
         super();
@@ -11,7 +13,6 @@ export class HomePage extends HTMLElement {
             const req = await fetch("./components/HomePage.css");
             const css = await req.text()
             styles.textContent = css
-            console.log(styles)
         }
         loadCSS()
     }
@@ -26,20 +27,17 @@ export class HomePage extends HTMLElement {
         
         //add proxy
         this.render()
+        window.addEventListener("noteschange", () => {
+            this.render()
+        })
     }
     render() {
         const section = this.shadowDOM.querySelector("#home")
         section.innerHTML = "";
-        section.innerHTML = `
-            <div class="add-new-note">
-                <a >+ Add a new note</a>
-            </div>
-        `
         //load notes
-        let notesData = null
-        async function loadNotes() {
-            notesData = await getNotes()
-            notesData.notes.forEach(note => {
+        async function getNotes() {
+            app.notes = await fetchNotes()
+            app.notes.notesArray.forEach(note => {
                 const noteContainer = document.createElement("div")
                 noteContainer.classList.add("note")
                 noteContainer.innerHTML = `
@@ -58,9 +56,9 @@ export class HomePage extends HTMLElement {
                 noteContainer.addEventListener("click", (event) => {
                     console.log(event.target)
                 })
-            });
+            })
         }
-        loadNotes()
+        getNotes()
     }
 }
 customElements.define("home-page", HomePage)
