@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/764423a291.js" crossorigin="anonymous"></script>
     <!-- Javascipt -->
     <script type="module" src="./app.js" defer></script>
     <!-- CSS -->
@@ -29,11 +31,20 @@
 
     <template id = "home-page-template">
         <section id="home" class="container">
+            <div class="empty-inner" hidden>
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://lottie.host/67f6741e-b116-4be0-8f3d-777e6de9c696/Cq7ETsCXuN.json" background="##ffffff" speed="1" style="width: 300px; height: 300px" loop autoplay direction="1" mode="normal"></lottie-player>
+            <p>No notes to show</p>
+        </div>
         </section>
     </template>
 
     <template id = "new-note-template">
         <section id="new-note" class="container">
+        </section>
+    </template>
+
+    <template id = "edit-note-template">
+        <section id="edit-note">
         </section>
     </template>
 </body>

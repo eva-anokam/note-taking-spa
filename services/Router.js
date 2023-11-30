@@ -39,8 +39,14 @@ export const Router = {
                 pageElement = document.createElement("new-note")
                 break;
             default:
-                pageElement = document.createElement("h1");
-                pageElement.textContent = "Page Not Found"
+                if (route.startsWith("/edit-note-")) {
+                    pageElement = document.createElement("edit-note");
+                    const paramId = route.substring(route.lastIndexOf("-") + 1)
+                    pageElement.dataset.noteId = paramId
+                } else {
+                    pageElement = document.createElement("h1")
+                    pageElement.textContent = "Page not found"
+                }
                 break;
         }
         const main = document.querySelector("main");

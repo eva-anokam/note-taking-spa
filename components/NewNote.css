@@ -16,11 +16,16 @@
     width: min(90%, 70rem);
     margin: 0 auto;
 }
+.title-delete{
+    display: flex;
+    flex-direction: row;
+}
 .input-container input{
     border: none;
     background-color: #f4f4f4;
     font-size: 1.25rem;
     font-family: 'Pacifico', cursive;
+    margin-right: auto;
 }
 .input-container textarea{
     background-color: #f4f4f4;
@@ -33,6 +38,16 @@
     font-family: "Quicksand";
     font-size: 1rem;
 }
+.color label{
+    display: flex;
+    align-items: center;
+}
+
+.color{
+    font-size: 1rem;
+    font-family: "Quicksand", sans-serif;
+}
+
 button{
     background-color: black;
     color: white;
@@ -45,6 +60,11 @@ button{
     margin-inline: auto;
 }
 
+svg{
+    max-width: 3rem;
+    margin: 0;
+    padding: 0;
+}
 
 
 @media(min-width: 780px) {

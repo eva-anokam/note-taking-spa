@@ -1,4 +1,7 @@
 import app from "../app.js";
+import { generateTime } from "../services/GenerateTime.js";
+import { createNoteId } from "../services/NoteId.js";
+import { Notes } from "../services/Notes.js";
 import Router from "../services/Router.js";
 
 export default class NewNote extends HTMLElement {
@@ -42,8 +45,13 @@ export default class NewNote extends HTMLElement {
                     </label>
                     <label>
                         <textarea name="body" id="body" col= "30" rows= "10" placeholder="Write note content here" required></textarea>
-                    
                     </label>
+                    <div class="color">
+                        <label>
+                        Select your background color:
+                            <input type="color" id="bgcolor" name="bgcolor" value="#ff0000"/>
+                        </label>
+                    </div>
                 </div>
                 <button type="submit">Create Note</button>
         </form>
@@ -66,17 +74,24 @@ export default class NewNote extends HTMLElement {
 
                 const title = this.shadowDOM.querySelector("#title");
                 const body = this.shadowDOM.querySelector("#body");
+                const color = this.shadowDOM.querySelector("#bgcolor")
 
                 if (title && body) {
+                    //generate time
+                    const time = generateTime()
+                    const id = createNoteId()
                     // Check if both input fields exist
                     const newNote = {
                         title: title.value,
-                        body: body.value
+                        body: body.value,
+                        created_at: time,
+                        color: color.value,
+                        id
                     };
 
-                    app.notes.notesArray.push(newNote);
+                    Notes.push(newNote)
+                    localStorage.setItem("note", JSON.stringify(Notes))
                     Router.go("/note-taking-spa/");
-                    console.log(app.notes.notesArray.length);
                 } else {
                     console.error("Input fields not found in the shadow DOM.");
                 }

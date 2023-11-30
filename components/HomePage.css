@@ -8,18 +8,54 @@ Note
   width: min(90%, 70rem);
   margin: 0 auto;
 }
-#home{
+.inner{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
 
-.note{
-    background-color: #fdfbd3;
-    padding: .5rem;
-    border: 3px solid hsl(57, 91%, 31%);
-    border-radius: 20px;
+.empty-inner{
+    margin: 0 auto;
+    font-family: Quicksand, sans-serif;
+    font-size: 2rem;
+    text-align: center;
 }
+
+.empty-inner svg, .empty-inner p{
+    margin: 0;
+}
+
+
+.note{
+    position: relative;
+    padding: .5rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.note:hover{
+    border: none;
+}
+.hover-element {
+  font-family: "Font Awesome 5 Free";
+  font-size: 2.5rem;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.note:hover .hover-element {
+  opacity: 1;
+}
+
 
 .note__title{
     font-weight: 400;

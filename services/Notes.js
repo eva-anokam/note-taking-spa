@@ -1,14 +1,16 @@
-const Notes = {
-    notes:  null
-}
+export const Notes = []
 
-const proxiedNotes = new Proxy(Notes, {
-    set(target, property, value) {
-        target[property] = value;
-        if (property === "notes") {
-            window.dispatchEvent(new Event("noteschange"))
-        }
-        return true;
+export function checkLocalStorage() {
+    const storedNotes = localStorage.getItem("note")
+    const data = JSON.parse(storedNotes)
+    //ls = local storage
+    if (data) {
+        data.forEach(lsData => {
+            // Check if lsData's title doesn't exist in Notes
+            const exists = Notes.some(note => note.title === lsData.title);
+            if (!exists) {
+                Notes.push(lsData); // If title is unique, add lsData to Notes
+            }
+        }); 
     }
-})
-export default proxiedNotes
+}
