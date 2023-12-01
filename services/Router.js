@@ -4,11 +4,11 @@ import NewNote from "../components/NewNote.js"
 export const Router = {
     init: () => {
         //set up event listeners
-        const link = document.querySelector(".link")
+        const logo = document.querySelector(".logo")
 
-        link.addEventListener("click", (event) => {
+        logo.addEventListener("click", (event) => {
             event.preventDefault()
-            const anchor = link.querySelector("a")
+            const anchor = logo.querySelector("a")
             const url = anchor.getAttribute("href")
             Router.go(url)
         })

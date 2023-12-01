@@ -24,82 +24,95 @@ body{
     font-family: var(--ff-primary);
 }
 
-/* 
-------------
-Utility classes
-------------
-*/
-.flow-content > * + * {
-  margin-top: var(--flow-space, var(--spacer));
-}
 
-.flow-content--lg {
-  --flow-space: 3rem;
-}
-.container {
-  padding: 0 var(--spacer);
-  max-width: 70rem;
-  margin: 0 auto;
-}
 /* 
 ------------
 Header
 ------------
 */
-header{
-    margin-bottom: 2rem;
-    padding: 1rem 1rem .5rem;
+
+img{
+  max-width: 8rem;
 }
 nav{
   width: min(90%, 70rem);
   margin: 0 auto;
-}
-.link{
-    list-style-type: none;
-    margin-bottom: 1.5rem;
-}
-.link a{
-    text-decoration: none;
-    color: var(--clr-dark);
-    font-weight: 700;
-    font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.add-new-note{
-    background-color: #f0f0f0;
-    width: 200px;
-    padding: .5rem;
-    text-align: center;
-    font-size: clamp(.75rem, 1.25rem, 1.5rem);
-    font-weight: 700;
-    border-radius: 20px;
-    margin: 0 auto 1rem;
-    transition: all .3s;
-    cursor: pointer;
-}
-.add-new-note:hover, .add-new-note:focus{
-  transform: scale(1.2);
-}
 
 @media(min-width: 780px) {
   header{
     padding: 2rem 0 0;
     margin-bottom: 3rem;
   }
-  nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  
   .link{
     margin-bottom: 0;
   }
   .link a{
     font-size: 2rem;
   }
-  .add-new-note{
-    padding: .75rem 1.5rem;
-    width: 300px;
-    margin: 0;
+}
+
+
+/* CSS */
+.add-new-note p {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.add-new-note p:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+.add-new-note p:hover:after {
+  transform: translate(0, 0);
+}
+
+.add-new-note p:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+.add-new-note p:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .add-new-note p {
+    padding: 0 40px;
   }
 }
