@@ -23,7 +23,9 @@ Resets
 body{
     font-family: var(--ff-primary);
 }
-
+main{
+  padding-bottom: 1rem;
+}
 
 /* 
 ------------
@@ -32,7 +34,7 @@ Header
 */
 
 img{
-  max-width: 8rem;
+  max-width: 9rem;
 }
 nav{
   width: min(90%, 70rem);
