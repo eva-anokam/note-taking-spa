@@ -4,6 +4,9 @@ import { Notes, checkLocalStorage } from "../services/Notes.js";
 import Router from "../services/Router.js";
 import { darkenHexColor } from "../services/CreateBorderColor.js";
 import { goToNote } from "../services/GoToNote.js";
+const cssModule = import('./HomePage.css', {
+    assert: { type: 'css' }
+});
 
 let noteToEditIndex = null
 export class HomePage extends HTMLElement {
@@ -12,12 +15,30 @@ export class HomePage extends HTMLElement {
 
         this.shadowDOM = this.attachShadow({ mode: "open" })
         //add css
-        const styles = document.createElement("style");
-        this.shadowDOM.appendChild(styles)
+        // Create a new style element
+        const styleElement = document.createElement('style');
+        // Append to the shadowDOM
+        this.shadowDOM.appendChild(styleElement);
+
         async function loadCSS() {
-            const req = await fetch("./components/HomePage.css");
-            const css = await req.text()
-            styles.textContent = css
+            try {
+                const req = await cssModule;
+                // Assuming req.default is your CSSStyleSheet object
+                const styleSheet = req.default;
+                // Concatenate and append the CSS text of each rule to the style element
+                let cssText = '';
+                for (let i = 0; i < styleSheet.cssRules.length; i++) {
+                    const rule = styleSheet.cssRules[i];
+                    // Concatenate each rule's CSS text
+                    cssText += rule.cssText + '\n';
+                }
+
+                // Set the concatenated CSS text as the content of the style element
+                styleElement.textContent = cssText;
+
+            } catch (error) {
+                console.error('Error loading CSS:', error);
+            }
         }
         loadCSS()
     }
