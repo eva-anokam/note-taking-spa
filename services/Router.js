@@ -35,7 +35,7 @@ export const Router = {
         } else if (route.endsWith("/new-note")) {
             pageElement = document.createElement("new-note")
         }
-        else if (route.startsWith("/edit-note-")) {
+        else if (route.includes("/edit-note-")) {
             pageElement = document.createElement("edit-note");
             const paramId = route.substring(route.lastIndexOf("-") + 1)
             pageElement.dataset.noteId = paramId

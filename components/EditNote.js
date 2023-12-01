@@ -107,7 +107,7 @@ export class EditNote extends HTMLElement{
         deleteBtn.addEventListener("click", () => {
             Notes.splice(noteToEditIndex, 1)
             localStorage.setItem("note", JSON.stringify(Notes))
-            Router.go("/note-taking-spa/")
+            Router.go("/")
         })
     }
 }
