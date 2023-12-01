@@ -34,7 +34,7 @@ Header
 */
 
 img{
-  max-width: 9rem;
+  width: 5rem;
 }
 nav{
   width: min(90%, 70rem);
@@ -75,8 +75,8 @@ nav{
   height: 48px;
   justify-content: center;
   line-height: 24px;
-  max-width: 100%;
-  padding: 0 25px;
+  max-width: 12rem;
+  padding: 0 5px;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -116,5 +116,8 @@ nav{
 @media (min-width: 768px) {
   .add-new-note p {
     padding: 0 40px;
+  }
+  img{
+    width: 9rem;
   }
 }

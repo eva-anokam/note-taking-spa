@@ -19,11 +19,12 @@
 .title-delete{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .input-container input{
     border: none;
     background-color: #f4f4f4;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-family: 'Pacifico', cursive;
     margin-right: auto;
 }
@@ -61,6 +62,7 @@ button{
 }
 
 svg{
+    width: 10%;
     max-width: 3rem;
     margin: 0;
     padding: 0;
