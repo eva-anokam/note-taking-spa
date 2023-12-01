@@ -15,7 +15,7 @@ export const Router = {
         const newNote = document.querySelector(".add-new-note")
         newNote.addEventListener("click", (event) => {
             event.preventDefault()
-            Router.go("?new-note")
+            Router.go("/new-note")
         })
 
         window.addEventListener("popstate", (event) => {
@@ -31,11 +31,11 @@ export const Router = {
         let pageElement = null;
 
         if (route.endsWith("/index.html") || route.endsWith("/")) {
-            pageElement = document.createElement("?home-page")
-        } else if (route.endsWith("?new-note")) {
+            pageElement = document.createElement("home-page")
+        } else if (route.endsWith("/new-note")) {
             pageElement = document.createElement("new-note")
         }
-        else if (route.includes("?edit-note-")) {
+        else if (route.includes("/edit-note-") || window.location.href.includes("/edit-note-")) {
             pageElement = document.createElement("edit-note");
             const paramId = route.substring(route.lastIndexOf("-") + 1)
             pageElement.dataset.noteId = paramId
