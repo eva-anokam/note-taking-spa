@@ -99,7 +99,7 @@ export class EditNote extends HTMLElement{
             }
             Notes[noteToEditIndex] = newNote
             localStorage.setItem("note", JSON.stringify(Notes))
-            Router.go("/note-taking-spa/")
+            Router.go("/")
         })
 
         const deleteBtn = this.shadowDOM.querySelector(".delete")

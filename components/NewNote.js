@@ -69,7 +69,7 @@ export default class NewNote extends HTMLElement {
                     <div class="color">
                         <label>
                         Select your background color:
-                            <input type="color" id="bgcolor" name="bgcolor" value="#ff0000"/>
+                            <input type="color" id="bgcolor" name="bgcolor" value="#f0f0f0"/>
                         </label>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ export default class NewNote extends HTMLElement {
 
                     Notes.push(newNote)
                     localStorage.setItem("note", JSON.stringify(Notes))
-                    Router.go("/note-taking-spa/");
+                    Router.go("/");
                 } else {
                     console.error("Input fields not found in the shadow DOM.");
                 }
