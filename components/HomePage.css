@@ -19,6 +19,7 @@ Note
     font-family: Quicksand, sans-serif;
     font-size: 2rem;
     text-align: center;
+    max-width: 300px;
 }
 
 .empty-inner svg, .empty-inner p{

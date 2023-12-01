@@ -24,31 +24,26 @@ export const Router = {
         // Call go() method initially when the app starts to handle the base URL
         Router.go(window.location.pathname); // This will load the home page for the base URL
     },
-    go: (route, addToHistory = true) =>  {
+    go: (route, addToHistory = true) => {
         if (addToHistory) {
-            history.pushState({route}, null, route)
+            history.pushState({ route }, null, route)
         }
         let pageElement = null;
-        switch (route) {
-            case "/note-taking-spa/index.html":
-            case "/note-taking-spa/":
-                //load the home page when the base url is accessed
-                pageElement = document.createElement("home-page")
-                break;
-            case "/new-note":
-                pageElement = document.createElement("new-note")
-                break;
-            default:
-                if (route.startsWith("/edit-note-")) {
-                    pageElement = document.createElement("edit-note");
-                    const paramId = route.substring(route.lastIndexOf("-") + 1)
-                    pageElement.dataset.noteId = paramId
-                } else {
-                    pageElement = document.createElement("h1")
-                    pageElement.textContent = "Page not found"
-                }
-                break;
+
+        if (route.endsWith("/index.html") || route.endsWith("/")) {
+            pageElement = document.createElement("home-page")
+        } else if (route.endsWith("/new-note")) {
+            pageElement = document.createElement("new-note")
         }
+        else if (route.startsWith("/edit-note-")) {
+            pageElement = document.createElement("edit-note");
+            const paramId = route.substring(route.lastIndexOf("-") + 1)
+            pageElement.dataset.noteId = paramId
+        } else {
+            pageElement = document.createElement("h1")
+            pageElement.textContent = "Page not found"
+        }
+        
         const main = document.querySelector("main");
         if (pageElement) {
             main.innerHTML = "";
