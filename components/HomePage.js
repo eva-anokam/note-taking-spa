@@ -117,7 +117,7 @@ export class HomePage extends HTMLElement {
                 const currNote = Notes.find(note => {
                     if (note.id === noteId) {
                         noteToEditIndex = goToNote(noteId)
-                        Router.go(`/edit-note-${noteId}`)
+                        Router.go(`?edit-note-${noteId}`)
 
                     }
                 })
